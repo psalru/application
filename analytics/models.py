@@ -11,6 +11,7 @@ class BaseModels(models.Model):
 
 
 class NewsFeed(BaseModels):
+    hash = models.TextField(help_text='Хэш из ключевого слова и ссылка для уникализации', unique=True)
     topic = models.TextField(help_text='Основная тема')
     keyword = models.TextField(help_text='Ключевое слово по которому ищет Google Alerts')
     date = models.DateField(help_text='Дата публикации')
