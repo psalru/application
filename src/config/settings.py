@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'analytics',
     'geo',
-    'university'
+    'university',
+    'hh'
 ]
 
 MIDDLEWARE = [
