@@ -1,16 +1,8 @@
 from django.db import models
+from config.models import BaseModel
 
 
-class BaseModels(models.Model):
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True, null=True)
-    deleted_at = models.DateTimeField(null=True)
-
-    class Meta:
-        abstract = True
-
-
-class NewsFeed(BaseModels):
+class NewsFeed(BaseModel):
     hash = models.TextField(help_text='Хэш из ключевого слова и ссылка для уникализации', unique=True)
     topic = models.TextField(help_text='Основная тема')
     keyword = models.TextField(help_text='Ключевое слово по которому ищет Google Alerts')
