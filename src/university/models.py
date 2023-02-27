@@ -1,11 +1,13 @@
 from django.db import models
 from config.models import BaseModel
+from geo.models import City
 
 
 class University(BaseModel):
     title = models.CharField(max_length=255, unique=True, help_text='Полное официальное название')
     title_short = models.CharField(max_length=255, unique=True, help_text='Краткое официальное название')
     title_display = models.CharField(max_length=255, unique=True, help_text='Отображаемое краткое название')
+    city = models.ForeignKey(City, null=True, blank=True, on_delete=models.PROTECT, help_text='Город (фактическое нахождение)')
     domain = models.CharField(max_length=255, unique=True, help_text='Основной домен (сайт) организации')
     mon_id = models.IntegerField(unique=True, help_text='ID университета в «1-Мониторинг»')
 
