@@ -10,7 +10,7 @@ class University(BaseModel):
     city = models.ForeignKey(City, on_delete=models.PROTECT, help_text='Город (фактическое нахождение)')
     geo_point = models.CharField(max_length=50, help_text='Геоточка нахождения организации')
     domain = models.CharField(max_length=255, unique=True, help_text='Основной домен (сайт) организации')
-    mon_id = models.IntegerField(unique=True, help_text='ID университета в «1-Мониторинг»')
+    mon_id = models.IntegerField(null=True, blank=True, help_text='ID университета в «1-Мониторинг»')
 
     def __str__(self):
         return self.title_short
