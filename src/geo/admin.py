@@ -3,9 +3,9 @@ from .models import *
 
 
 class FederalDistrictAdmin(admin.ModelAdmin):
-    list_display = ['id', 'short_title', 'title', 'capital', 'square']
-    list_display_links = ['id', 'title', 'short_title']
-    search_fields = ['title', 'short_title', 'capital']
+    list_display = ['id', 'title_short', 'title', 'capital', 'square']
+    list_display_links = ['id', 'title', 'title_short']
+    search_fields = ['title', 'title_short', 'capital']
     ordering = ('title',)
 
 

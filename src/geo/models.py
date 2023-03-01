@@ -4,12 +4,12 @@ from config.models import BaseModel
 
 class FederalDistrict(BaseModel):
     title = models.CharField(max_length=255, help_text='Название федерального округа')
-    short_title = models.CharField(max_length=255, help_text='Краткое название федерального округа')
+    title_short = models.CharField(max_length=255, help_text='Краткое название федерального округа')
     capital = models.ForeignKey('City', null=True, help_text='Столица федерального округа', on_delete=models.PROTECT)
     square = models.FloatField(help_text='Площадь федерального округа')
 
     def __str__(self):
-        return self.short_title
+        return self.title_short
 
     class Meta:
         db_table = 'geo_federal_district'
