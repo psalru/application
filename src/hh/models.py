@@ -22,7 +22,7 @@ class CurrencyExchangeRate(BaseModel):
     title = models.CharField(max_length=255, help_text='Название валюты')
     nominal = models.IntegerField(help_text='Номинал (сколько в рублях)')
     value = models.FloatField(help_text='Курс обмена (сколько можно получить в валюте за номинал)')
-    char_code = models.FloatField(max_length=3, help_text='Текстовый код из 3-х символов')
+    char_code = models.CharField(max_length=3, help_text='Текстовый код из 3-х символов')
     num_code = models.IntegerField(help_text='Номерной код валюты')
     currency_id = models.CharField(max_length=10, help_text='ID валюты (указано в атрибуте тега валюты в XML)')
 
