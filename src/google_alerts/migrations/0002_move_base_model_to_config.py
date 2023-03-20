@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ("analytics", "0001_news_feed_table"),
+        ("google_alerts", "0001_news_feed_table"),
     ]
 
     operations = [
