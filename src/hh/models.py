@@ -5,7 +5,7 @@ from university.models import University
 
 
 class HHUniversity(BaseModel):
-    university = models.ForeignKey(University, on_delete=models.PROTECT, help_text='Ссылка на университет')
+    university = models.ForeignKey(University, related_name='hh', on_delete=models.PROTECT, help_text='Ссылка на университет')
     employer_id = models.IntegerField(null=True, blank=True, help_text='ID организации как работодателя для работы с HH API')
     educational_institution_id = models.IntegerField(null=True, blank=True, help_text='ID организации как обр. организации для работы с HH API')
 

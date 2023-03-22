@@ -16,13 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
+from django.views.generic.base import RedirectView
 
-from university.views import UniversityViewSet
+from university.views import UniversityViewSet, StatusViewSet
 
 router_api = routers.DefaultRouter()
 router_api.register(r'university', UniversityViewSet)
+router_api.register(r'status', StatusViewSet)
 
 urlpatterns = [
+    path('', RedirectView.as_view(url='api/', permanent=False)),
     path('admin/', admin.site.urls),
     path('api/', include(router_api.urls))
 ]
