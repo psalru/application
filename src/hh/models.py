@@ -5,7 +5,7 @@ from university.models import University
 
 
 class HHUniversity(BaseModel):
-    university = models.ForeignKey(University, on_delete=models.PROTECT, help_text='Ссылка на университет')
+    university = models.ForeignKey(University, related_name='hh', on_delete=models.PROTECT, help_text='Ссылка на университет')
     employer_id = models.IntegerField(null=True, blank=True, help_text='ID организации как работодателя для работы с HH API')
     educational_institution_id = models.IntegerField(null=True, blank=True, help_text='ID организации как обр. организации для работы с HH API')
 
@@ -61,14 +61,20 @@ class Vacancy(BaseModel):
 
 
 class ProfessionalRole(BaseModel):
-    vacancy = models.ForeignKey(Vacancy, on_delete=models.PROTECT, help_text='Ссылка на вакансию')
+    vacancy = models.ForeignKey(Vacancy, related_name='professional_role', on_delete=models.PROTECT, help_text='Ссылка на вакансию')
     hh_professional_role_dict_id = models.IntegerField(help_text='Ссылка на справочник профессиональных ролей в HH')
     title = models.CharField(max_length=255, help_text='Название ключевого навыка')
+
+    def __str__(self):
+        return self.title
 
     class Meta:
         db_table = 'hh_professional_role'
 
 
 class Skill(BaseModel):
-    vacancy = models.ForeignKey(Vacancy, on_delete=models.PROTECT, help_text='Ссылка на вакансию')
+    vacancy = models.ForeignKey(Vacancy, related_name='skill', on_delete=models.PROTECT, help_text='Ссылка на вакансию')
     title = models.CharField(max_length=255, help_text='Название ключевого навыка')
+
+    def __str__(self):
+        return self.title
