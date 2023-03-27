@@ -1,5 +1,6 @@
 .idea/*
 docker/*
-venv/*
+src/venv/*
+static/*
 !**/.gitkeep
 .env
