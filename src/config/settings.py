@@ -52,7 +52,8 @@ INSTALLED_APPS = [
     'google_alerts',
     'geo',
     'university',
-    'hh'
+    'hh',
+    'dict'
 ]
 
 MIDDLEWARE = [
