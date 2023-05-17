@@ -49,11 +49,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'django_filters',
+    'dict',
     'google_alerts',
     'geo',
     'university',
     'hh',
-    'dict'
+    'rosrid'
 ]
 
 MIDDLEWARE = [
