@@ -7,6 +7,8 @@ from geo.views import FederalDistrictViewSet, FederalRegionViewSet, CityViewSet
 from university.views import UniversityViewSet, StatusViewSet
 from google_alerts.views import NewsFeedViewSet
 from hh.views import VacancyViewSet
+from dict.views import OECDViewSet
+from rosrid.views import ActiveViewSet
 
 router_api = routers.DefaultRouter()
 router_api.register(r'district', FederalDistrictViewSet)
@@ -16,6 +18,8 @@ router_api.register(r'university', UniversityViewSet)
 router_api.register(r'status', StatusViewSet)
 router_api.register(r'newsfeed', NewsFeedViewSet)
 router_api.register(r'vacancy', VacancyViewSet)
+router_api.register(r'oecd', OECDViewSet)
+router_api.register(r'rosrid', ActiveViewSet)
 
 urlpatterns = [
     path('', RedirectView.as_view(url='api/', permanent=False)),
