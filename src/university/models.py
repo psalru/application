@@ -11,6 +11,8 @@ class University(BaseModel):
     geo_point = models.CharField(max_length=50, help_text='Геоточка нахождения университета')
     domain = models.CharField(max_length=255, unique=True, help_text='Основной домен (сайт) университета')
     mon_id = models.IntegerField(null=True, blank=True, help_text='ID университета в «1-Мониторинг»')
+    inn = models.CharField(max_length=10, null=True, blank=True, help_text='ИНН')
+    ogrn = models.CharField(max_length=13, null=True, blank=True, help_text='ОРГН')
 
     def __str__(self):
         return self.title_short
