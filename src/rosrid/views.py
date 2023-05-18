@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from rest_framework import viewsets
 
-# Create your views here.
+from .models import Active
+from .serializers import ActiveSerializer
+
+
+class ActiveViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Active.objects.all().order_by('id')
+    serializer_class = ActiveSerializer
