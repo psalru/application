@@ -35,6 +35,7 @@ class Active(BaseModel):
     title = models.CharField(max_length=2048, help_text='Название актива')
     oecd = models.ManyToManyField(OECD, help_text='Связи с OECD')
     url = models.CharField(max_length=255, help_text='Ссылка на актив в ЕГИСУ НИОКТР')
+    is_executor = models.BooleanField(default=False, help_text='Признак того, можем ли мы считать актив за университетом')
     s3_bucket = models.CharField(max_length=255, help_text='Баккет в S3')
     s3_key = models.CharField(max_length=255, help_text='Ссылка на JSON содержащий подробные данные актива')
 
