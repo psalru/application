@@ -47,7 +47,7 @@ class Vacancy(BaseModel):
     experience = models.CharField(max_length=25, help_text='Требуемый опыт работы (без нормализации)')
     schedule = models.CharField(max_length=25, help_text='График работы (без нормализации)')
     employment = models.CharField(max_length=25, help_text='Тип занятости (без нормализации)')
-    federal_region = models.ForeignKey(FederalRegion, on_delete=models.PROTECT, help_text='Ссылка на регион')
+    federal_region = models.ForeignKey(FederalRegion, null=True, blank=True, on_delete=models.PROTECT, help_text='Ссылка на регион РФ')
     url = models.CharField(max_length=255, help_text='Ссылка на страницу вакансии на HH')
     s3_bucket = models.CharField(max_length=255, help_text='Баккет в S3')
     s3_key = models.CharField(max_length=255, help_text='Ссылка на JSON вакансии полученный от HH')
